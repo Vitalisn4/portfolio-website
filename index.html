@@ -189,8 +189,30 @@
                     <p id="noCertificates">No certificates uploaded yet</p>
                     <div id="certificatesList"></div>
                     <div class="certificate-upload">
-                        <label for="certificateUpload" class="btn primary-btn">Add Certificate</label>
-                        <input type="file" id="certificateUpload" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                        <h4>Add New Certificate</h4>
+                        <form id="certificateForm">
+                            <div class="form-group">
+                                <label for="certificateName">Certificate Name</label>
+                                <input type="text" id="certificateName" placeholder="e.g., AWS Certified Developer" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="certificateIssuer">Issuing Organization</label>
+                                <input type="text" id="certificateIssuer" placeholder="e.g., Amazon Web Services" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="certificateDate">Date Earned</label>
+                                <input type="date" id="certificateDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="certificateDescription">Description</label>
+                                <textarea id="certificateDescription" placeholder="Describe what you did to earn this certificate..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="certificateUpload">Certificate File</label>
+                                <input type="file" id="certificateUpload" accept=".pdf,.jpg,.jpeg,.png" required>
+                            </div>
+                            <button type="submit" class="btn primary-btn">Add Certificate</button>
+                        </form>
                     </div>
                 </div>
             </div>
