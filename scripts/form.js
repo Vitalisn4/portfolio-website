@@ -74,40 +74,40 @@ messageInput.addEventListener("input", validateMessage)
 
 // Function to show the modal
 function showModal(message) {
-  alert(message) // Replace with your actual modal implementation
+  const successModal = document.getElementById("successModal")
+  const modalMessage = document.getElementById("modalMessage")
+  modalMessage.textContent = message
+  successModal.style.display = "flex"
 }
 
 // Form submission
 contactForm.addEventListener("submit", (e) => {
-  e.preventDefault()
-
   // Validate all fields
   const isNameValid = validateName()
   const isEmailValid = validateEmail()
   const isSubjectValid = validateSubject()
   const isMessageValid = validateMessage()
 
-  // If all validations pass
-  if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
-    // Get form data
-    const formData = {
-      name: nameInput.value.trim(),
-      email: emailInput.value.trim(),
-      subject: subjectInput.value.trim(),
-      message: messageInput.value.trim(),
-      date: new Date().toLocaleString(),
-    }
-
-    // Store message in localStorage
-    const messages = JSON.parse(localStorage.getItem("contactMessages")) || []
-    messages.push(formData)
-    localStorage.setItem("contactMessages", JSON.stringify(messages))
-
-    // Show success message
-    showModal("Your message has been sent successfully!")
-
-    // Reset form
-    contactForm.reset()
+  // If any validation fails, prevent form submission
+  if (!isNameValid || !isEmailValid || !isSubjectValid || !isMessageValid) {
+    e.preventDefault()
+    return
   }
+
+  // Store message in localStorage as a backup
+  const formData = {
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    subject: subjectInput.value.trim(),
+    message: messageInput.value.trim(),
+    date: new Date().toLocaleString(),
+  }
+
+  const messages = JSON.parse(localStorage.getItem("contactMessages")) || []
+  messages.push(formData)
+  localStorage.setItem("contactMessages", JSON.stringify(messages))
+
+  // Form will be submitted to Formspree
+  // We don't need to prevent default here
 })
 
