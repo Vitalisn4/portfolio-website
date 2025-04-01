@@ -4,7 +4,7 @@
 
 ## 🏆 Hackathon Submission by Ngam VitalisYuh
 
-This project is my submission for the "Ultimate Winning Portfolio Website" hackathon challenge. It's a fully interactive, visually striking personal portfolio website built using **only HTML, CSS, and vanilla JavaScript** as per the competition requirements.
+This project is my submission for the "Portfolio Website" hackathon challenge. It's a fully interactive, visually striking personal portfolio website built using **only HTML, CSS, and vanilla JavaScript** as per the competition requirements.
 
 ## 📋 Table of Contents
 
